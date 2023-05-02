@@ -80,11 +80,32 @@ int main()
 {
     cout << "number of vertices:";
     cin >> V;
+    // cout<<"Enter cost matrix: ";
+    // for (int i = 0; i < V; i++)  
+    //     for (int j = 0; j < V; j++)
+    //         cin >> cost[i][j];
 
-    for (int i = 0; i < V; i++)  
-        for (int j = 0; j < V; j++)
-            cin >> cost[i][j];
-    
+
+    // // Initialize all elements to infinity
+    // for (int i = 0; i < V; i++) {
+    //     for (int j = 0; j < V; j++) {
+    //         cost[i][j] = INT_MAX;
+    //     }
+    // }
+
+    // Take input for edges and their weights
+    int E;
+    cout << "Enter the number of edges: ";
+    cin >> E;
+    for (int i = 0; i < E; i++) {
+        int u, v, w;
+        cout << "Enter edge and weight (u v w): "<<endl;
+        cin >> u >> v >> w;
+
+        // Add the edge and its weight to the cost matrix
+        cost[u][v] = w;
+        cost[v][u] = w; // if the graph is undirected, add the reverse edge as well
+    }
     cout << "src node: ";
     cin >> src;
     
